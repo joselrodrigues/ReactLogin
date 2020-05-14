@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Provider} from 'react-redux'
+import createSagaMiddleware from "redux-saga";
+import {applyMiddleware, createStore} from "redux";
+
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+
+import rootSaga from "./sagas";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
+const middleware = [createSagaMiddleware()]
+const store = createStore(, applyMiddleware(...middleware))
+
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <React.StrictMode>
